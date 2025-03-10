@@ -4,15 +4,15 @@ import 'package:get/get.dart';
 import 'water_list_logic.dart';
 
 class WaterListView extends GetView<PageLogic> {
-  const WaterListView({super.key});
-
+  WaterListView({super.key});
+  int a = 100;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.hartmann.value
-              ? const CircularProgressIndicator(color: Colors.pinkAccent)
+          () => controller.mante.value
+              ? const CircularProgressIndicator(color: Colors.blue)
               : buildError(),
         ),
       ),
@@ -26,7 +26,7 @@ class WaterListView extends GetView<PageLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.aomnupg();
+              controller.ibsdqm();
             },
             icon: const Icon(
               Icons.restart_alt,

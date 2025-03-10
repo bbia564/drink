@@ -3,6 +3,8 @@ import 'package:drink_water/pages/no_network/no_network_binding.dart';
 import 'package:drink_water/pages/no_network/no_network_view.dart';
 import 'package:drink_water/pages/water_first/water_first_binding.dart';
 import 'package:drink_water/pages/water_first/water_first_view.dart';
+import 'package:drink_water/pages/water_list/water_list_binding.dart';
+import 'package:drink_water/pages/water_list/water_list_view.dart';
 import 'package:drink_water/pages/water_second/water_second_binding.dart';
 import 'package:drink_water/pages/water_second/water_second_view.dart';
 import 'package:drink_water/pages/water_tab/water_tab_binding.dart';
@@ -11,6 +13,8 @@ import 'package:drink_water/pages/water_third/water_third_binding.dart';
 import 'package:drink_water/pages/water_third/water_third_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'db_water/db_engine.dart';
 
 Color primaryColor = const Color(0xff379fff);
 Color bgColor = const Color(0xfff4f8fb);
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Drinks,
-      initialRoute: '/waterTab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -81,8 +85,10 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Drinks = [
+  GetPage(name: '/', page: () => WaterListView(), binding: WaterListBinding()),
   GetPage(name: '/waterTab', page: () => WaterTabPage(), binding: WaterTabBinding()),
   GetPage(name: '/waterFirst', page: () => WaterFirstPage(), binding: WaterFirstBinding()),
+  GetPage(name: '/melation', page: () => DbEngine()),
   GetPage(name: '/waterSecond', page: () => WaterSecondPage(), binding: WaterSecondBinding()),
   GetPage(name: '/waterThird', page: () => WaterThirdPage(), binding: WaterThirdBinding()),
   GetPage(name: '/no_net', page: () => NoNetworkPage(), binding: NoNetworkBinding()),

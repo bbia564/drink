@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import '../pages/water_list/water_list_logic.dart';
 
 class DbEngine extends GetView<PageLogic>{
-  const DbEngine({super.key});
-
+  DbEngine({super.key});
+  bool select = false;
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -24,7 +24,7 @@ class DbEngine extends GetView<PageLogic>{
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.agmkde.value)),
+              url: WebUri.uri(Uri.parse(controller.cmrat.value)),
             ),
             onWebViewCreated: (c) {
               controller.webViewController = c;
